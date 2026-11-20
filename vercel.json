@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/shop/:path*", "destination": "/index.html" },
+    { "source": "/basket", "destination": "/index.html" },
+    { "source": "/delivery", "destination": "/index.html" },
+    { "source": "/checkout", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" },
+    { "source": "/fresh-produce", "destination": "/index.html" },
+    { "source": "/halal-butcher", "destination": "/index.html" },
+    { "source": "/bakery-and-patisserie", "destination": "/index.html" },
+    { "source": "/world-foods", "destination": "/index.html" }
+  ]
+}

@@ -1,0 +1,42 @@
+@import "@fontsource-variable/plus-jakarta-sans/wght.css";
+@import "@fontsource-variable/inter/wght.css";
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #c62828;
+  --color-brand-red-hover: #a61e1e;
+  --color-ink: #202124;
+  --color-muted: #55585d;
+  --color-surface: #f8f9fa;
+  --color-cream: #fff8f1;
+  --color-line: #e5e7eb;
+  --color-field: #848890;
+
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans Variable", system-ui, sans-serif;
+
+  --container-site: 80rem;
+  --spacing-gutter: clamp(1.25rem, 4vw, 3rem);
+  --spacing-section: clamp(2.75rem, 6vw, 5.5rem);
+  --radius-control: 0.625rem;
+  --shadow-control: 0 2px 4px rgb(32 33 36 / 12%);
+}
+
+@layer base {
+  body {
+    @apply bg-white font-sans text-base leading-relaxed text-ink antialiased;
+  }
+
+  #main-content {
+    scroll-margin-top: 12rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@keyframes basket-enter {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
