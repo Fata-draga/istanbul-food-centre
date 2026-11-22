@@ -15,9 +15,16 @@ const ContactPage = lazy(() => import('./pages/ContactPage.jsx'))
 const DeliveryPage = lazy(() => import('./pages/DeliveryPage.jsx'))
 const ShopPage = lazy(() => import('./pages/ShopPage.jsx'))
 
+const base = import.meta.env.BASE_URL
+const { pathname, search, hash } = window.location
+if (base !== '/' && pathname.startsWith(base) && pathname.length > base.length && pathname.endsWith('/')) {
+  // GitHub Pages redirects directory URLs to a trailing slash. Preserve the router's canonical path.
+  window.history.replaceState(window.history.state, '', pathname.slice(0, -1) + search + hash)
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={base}>
       <BasketProvider>
         <Routes>
           <Route element={<SiteLayout />}>

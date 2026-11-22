@@ -53,7 +53,8 @@ function localAdminEntry() {
   }
 }
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'github-pages' ? '/istanbul-food-centre/' : '/',
   server: { host: 'localhost' },
   plugins: [localAdminEntry(), react(), tailwindcss()],
-})
+}))
