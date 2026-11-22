@@ -7,11 +7,11 @@ import SectionHeading from '../components/SectionHeading.jsx'
 import CatalogueSearch from '../components/shop/CatalogueSearch.jsx'
 import CategoryFilters from '../components/shop/CategoryFilters.jsx'
 import { departments } from '../data/departments.js'
-import { products } from '../data/products.js'
+import { deliCategory, storefrontProducts } from '../data/storefrontProducts.js'
 import { shopRegionNames, shopRegions } from '../data/shopRegions.js'
 
 const countries = [{ id: '', name: 'All Countries' }, ...shopRegions]
-const categories = [{ id: '', name: 'All Products' }, ...departments]
+const categories = [{ id: '', name: 'All Products' }, ...departments, deliCategory]
 const categoryNames = new Map(categories.map(({ id, name }) => [id, name]))
 const sortOptions = [
   { id: '', name: 'Featured' },
@@ -36,7 +36,7 @@ export default function ShopPage() {
   }, [])
 
   const terms = searchText(query).trim().split(/\s+/).filter(Boolean)
-  const results = products.filter((product) => {
+  const results = storefrontProducts.filter((product) => {
     if (category && product.category !== category) return false
     if (country && product.region !== country) return false
     const searchable = searchText(`${product.name} ${product.description} ${product.keywords ?? ''} ${product.unit} ${product.unit.replaceAll(' ', '')} ${categoryNames.get(product.category) ?? ''}`)

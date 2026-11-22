@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { products } from '../../data/products.js'
+import { storefrontProducts } from '../../data/storefrontProducts.js'
 
 const BasketContext = createContext(null)
 const storageKey = 'ifc-basket'
 const storageVersion = 1
-const productsById = new Map(products.map(product => [product.id, product]))
+const productsById = new Map(storefrontProducts.map(product => [product.id, product]))
 
 export const maxBasketQuantity = 999
 export const basketNotice = 'Demonstration basket — products and prices are illustrative. Online ordering is not yet available.'
